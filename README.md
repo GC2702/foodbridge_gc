@@ -1,54 +1,104 @@
 # 🍲 FoodBridge — Campus Surplus Food Redistribution Network
 
-FoodBridge is a real-time campus surplus food rescue platform designed to connect mess halls, food courts, and campus event organizers with students to eliminate campus food waste.
+FoodBridge is a real-time, campus-wide surplus food redistribution web application designed to connect dining halls, canteens, catering events, and students to prevent edible food from ending up in landfills.
 
 ---
 
-## 🔗 Project Links
+## 🔗 Live Links
 
-- **Live Application**: https://foodbridge-gc-j7db.vercel.app/
-- **GitHub Repository**: https://github.com/GC2702/foodbridge_gc
-- **Backend API**: https://foodbridge-c5zw.onrender.com
-
----
-
-## 🚀 Key Features
-
-- **Instant Surplus Listing**: Mess staff or event coordinators can publish surplus food specifying title, portion quantity, pickup point, and a dynamic best-before time.
-- **Real-Time Expiration & Claim Locking**: Post countdown timers automatically disable claims the second a listing expires, switching status to `POST CLOSED`.
-- **Portion Allocation & Reg No Tracking**: Students can claim portions using their registration number, with real-time stock reduction preventing overclaiming.
-- **Live Impact Dashboard**:
-  - **Servings Rescued**: Live counter of all successfully claimed portions.
-  - **Servings Expired**: Accurately accounts for any portions left unclaimed once a listing passes its deadline.
-- **One-Click State Reset**: Built-in test endpoint and UI button to reset the in-memory store for evaluation cycles.
+- **Live Web Application**: [https://foodbridge-gc-j7db.vercel.app/](https://foodbridge-gc-j7db.vercel.app/)
+- **GitHub Repository**: [https://github.com/GC2702/foodbridge_gc](https://github.com/GC2702/foodbridge_gc)
+- **Backend API Service**: [https://foodbridge-c5zw.onrender.com](https://foodbridge-c5zw.onrender.com)
 
 ---
 
-## 🛠 Tech Stack
+## 📖 What the App Does
 
-- **Frontend**: React (Vite), Modern CSS, HTML5
-- **Backend**: Node.js, Express.js, CORS
-- **Deployment**: 
-  - Frontend: **Vercel**
-  - Backend: **Render**
+FoodBridge allows campus food facilities and event organizers to immediately publish surplus food batches with details such as portion counts, pickup location, and a strict "best before" timestamp. 
+
+Students monitor a live feed, view available portions in real time, and claim servings using their campus registration number. When a food batch reaches its expiry deadline, claiming is automatically locked down, and the system aggregates metrics showing both meals rescued and meals expired.
 
 ---
 
-## 📡 API Endpoints
+## ✅ Completed Features
 
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/posts` | Returns all active and closed listings ordered by best-before time |
-| `POST` | `/api/posts` | Creates a new surplus food listing |
-| `POST` | `/api/posts/:id/claims` | Claims a portion quantity against a listing |
-| `GET` | `/api/stats` | Returns aggregated metrics (`servingsSaved`, `servingsMissed`) |
-| `POST` | `/api/reset` | Resets all in-memory posts, claims, and metrics |
+- [x] **Surplus Food Publishing**: Form validation for item title, portions, pickup location, and expiration datetime.
+- [x] **Real-Time Countdown Badges**: Dynamic client-side countdown timer for each post (`h`, `m`, `s`).
+- [x] **Automatic Expiration Locking**: Immediate UI lockdown and server-side validation preventing expired listings from accepting claims (`POST CLOSED`).
+- [x] **Safe Portion Claiming**: Registration number-tagged claiming with quantity clamping so users cannot claim more than available stock.
+- [x] **Live Impact Metrics Dashboard**:
+  - **Servings Rescued**: Real-time count of total portions claimed by students.
+  - **Servings Expired**: Automatic tally of portions that went unclaimed past the deadline.
+- [x] **One-Click State Reset**: Dedicated reset control to clear in-memory state cleanly between evaluation runs.
+- [x] **Cloud Deployment & Sync**: Full-stack separation with the frontend hosted on Vercel and the Express backend hosted on Render.
 
 ---
 
-## 💻 Local Setup & Execution
+## 📸 Screenshots
+
+### 1. Active Listings & Impact Dashboard
+*Live metrics tracking rescued servings alongside active listings with countdown timers:*
+# 🍲 FoodBridge — Campus Surplus Food Redistribution Network
+
+FoodBridge is a real-time, campus-wide surplus food redistribution web application designed to connect dining halls, canteens, catering events, and students to prevent edible food from ending up in landfills.
+
+---
+
+## 🔗 Live Links
+
+- **Live Web Application**: [https://foodbridge-gc-j7db.vercel.app/](https://foodbridge-gc-j7db.vercel.app/)
+- **GitHub Repository**: [https://github.com/GC2702/foodbridge_gc](https://github.com/GC2702/foodbridge_gc)
+- **Backend API Service**: [https://foodbridge-c5zw.onrender.com](https://foodbridge-c5zw.onrender.com)
+
+---
+
+## 📖 What the App Does
+
+FoodBridge allows campus food facilities and event organizers to immediately publish surplus food batches with details such as portion counts, pickup location, and a strict "best before" timestamp. 
+
+Students monitor a live feed, view available portions in real time, and claim servings using their campus registration number. When a food batch reaches its expiry deadline, claiming is automatically locked down, and the system aggregates metrics showing both meals rescued and meals expired.
+
+---
+
+## ✅ Completed Features
+
+- [x] **Surplus Food Publishing**: Form validation for item title, portions, pickup location, and expiration datetime.
+- [x] **Real-Time Countdown Badges**: Dynamic client-side countdown timer for each post (`h`, `m`, `s`).
+- [x] **Automatic Expiration Locking**: Immediate UI lockdown and server-side validation preventing expired listings from accepting claims (`POST CLOSED`).
+- [x] **Safe Portion Claiming**: Registration number-tagged claiming with quantity clamping so users cannot claim more than available stock.
+- [x] **Live Impact Metrics Dashboard**:
+  - **Servings Rescued**: Real-time count of total portions claimed by students.
+  - **Servings Expired**: Automatic tally of portions that went unclaimed past the deadline.
+- [x] **One-Click State Reset**: Dedicated reset control to clear in-memory state cleanly between evaluation runs.
+- [x] **Cloud Deployment & Sync**: Full-stack separation with the frontend hosted on Vercel and the Express backend hosted on Render.
+
+---
+
+## 📸 Screenshots
+
+### 1. Active Listings & Impact Dashboard
+*Live metrics tracking rescued servings alongside active listings with countdown timers:*<img width="1296" height="869" alt="Screenshot 2026-10-08 231418" src="https://github.com/user-attachments/assets/af4429d3-b287-4c54-be8a-d9cdf3c75468" />
+---
+
+## 💻 How to Run Locally
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
 
 ### 1. Clone the repository
 ```bash
 git clone [https://github.com/GC2702/foodbridge_gc.git](https://github.com/GC2702/foodbridge_gc.git)
 cd foodbridge_gc
+How I Used AI
+AI Tools Used: Google Gemini
+
+What AI Was Used For:
+
+Debugging Timezone Inconsistencies: Identified that <input type="datetime-local"> outputs un-zoned strings that caused server/client clock mismatches, and resolved it using standardized ISO 8601 UTC timestamp conversions.
+
+State Synchronization Logic: Designed atomic validation on both client and Express routes to lock claims concurrently when isExpired(post) evaluates to true.
+
+Deployment Troubleshooting: Diagnosed and resolved Git remote tracking mismatches across deployment platforms (Vercel frontend build cache and Render web service state).
+
+Documentation & UI Polish: Scaffolded UI components for countdown badges and structured the comprehensive technical documentation.
