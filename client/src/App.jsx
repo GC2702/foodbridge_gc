@@ -122,7 +122,7 @@ export default function App() {
   };
 
   const handleReset = async () => {
-    if (!window.confirm('Clear all entries and reset stats?')) return;
+    if (!window.confirm('Clear all listings and reset metrics?')) return;
     try {
       await fetch(`${API_BASE}/api/reset`, { method: 'POST' });
       setSuccessMsg('All entries deleted and metrics reset.');
